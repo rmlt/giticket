@@ -27,7 +27,7 @@ def update_commit_message(filename, regex):
 
         tickets = re.findall(regex, branch)
         if tickets:
-            new_commit_msg = f"{tickets[0]} {commit_msg}"
+            new_commit_msg = f"[{tickets[0]}] {commit_msg}"
 
             contents[0] = six.text_type(new_commit_msg)
             fd.seek(0)
