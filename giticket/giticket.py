@@ -56,15 +56,9 @@ def main(argv=None):
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('filenames', nargs='+')
-    parser.add_argument('--regex')
-    parser.add_argument('--format')
-    # parser.add_argument('--mode', nargs='?', const=underscore_split_mode,
-    #                     default=underscore_split_mode,
-    #                     choices=[underscore_split_mode, regex_match_mode])
     args = parser.parse_args(argv)
-    regex = args.regex or '[A-Z]+-\d+'  # noqa
-    format_string = args.format or '{ticket} {commit_msg}' # noqa
-    update_commit_message(args.filenames[0], regex, format_string)
+    regex = r"HYPER-[0-9]+" # noqa
+    update_commit_message(args.filenames[0], regex)
 
 
 if __name__ == '__main__':
