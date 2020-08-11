@@ -14,7 +14,7 @@ underscore_split_mode = 'underscore_split'
 regex_match_mode = 'regex_match'
 
 
-def update_commit_message(filename, regex, format_string):
+def update_commit_message(filename, regex):
     with io.open(filename, 'r+') as fd:
         contents = fd.readlines()
         commit_msg = contents[0]
